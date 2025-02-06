@@ -363,4 +363,5 @@ if __name__ == '__main__':
 # --beta_for_cache 0.002 \
 # --max_step_in_cache 2 \
 # --savename speedyrec_mind \
-# --news_dim 256
+# --news_dim 256 \
+# --save_steps 200

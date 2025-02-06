@@ -117,3 +117,13 @@ if __name__ == "__main__":
     setuplogger()
     args = parse_args()
     generate_submission(args)
+
+
+# python submission.py \
+# --pretrained_model_path google-bert/bert-base-cased \
+# --pretreained_model others \
+# --root_data_dir ./data/speedy_data/ \
+# --num_hidden_layers 8 \
+# --load_ckpt_name ./saved_models/speedyrec_mind-epoch-1-200.pt \
+# --batch_size 4 \
+# --news_dim 256
