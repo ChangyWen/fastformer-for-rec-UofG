@@ -21,7 +21,7 @@ def generate_submission(args):
     logging.info('-----------start test------------')
 
     local_rank = 0
-    device = torch.device('cuda', int(local_rank))
+    device = torch.device(f'cuda:{local_rank}')
 
     model = MLNR(args)
     model = model.to(device)
@@ -83,13 +83,13 @@ def prediction(model, args, device, category_dict, subcategory_dict, n):
             # include user_news_history
             for id, user_vec, news_vec, hist_vec in zip(
                     impids, user_vecs, candidate_vec, user_news_history):
-                
+
                 # replace original dot click predictor with RelDiff version
                 # score = np.dot(
                 #     news_vec, user_vec
                 # )
                 # pred_rank = (np.argsort(np.argsort(score)[::-1]) + 1).tolist()
-                
+
                 # obtain the reldiff size of user_news_history
                 if n != 'all':
                     size = min(n, len(hist_vec))
@@ -104,7 +104,7 @@ def prediction(model, args, device, category_dict, subcategory_dict, n):
                 pred_rank = (np.argsort(np.argsort(score_reldiff)[::-1]) + 1).tolist()
                 f.write(str(id) + ' ' + '[' + ','.join([str(x) for x in pred_rank]) + ']' + '\n')
 
-         
+
         f.close()
 
     zip_file = zipfile.ZipFile(f'ff-prediction-{n}.zip', 'w', zipfile.ZIP_DEFLATED)
