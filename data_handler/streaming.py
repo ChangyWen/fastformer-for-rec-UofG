@@ -74,7 +74,7 @@ class StreamReader:
         # print(f"StreamReader reset(), {self.session}, pid:{threading.currentThread()}")
         if self.session:
             self.session.close()
-        self.session = tf.Session()
+        self.session = tf.compat.v1.Session()
         self.endofstream = False
 
     def get_next(self):
