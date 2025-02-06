@@ -26,7 +26,7 @@ class NewsInfo:
             self.category_dict, self.subcategory_dict = {}, {}
 
         _, _, tokenizer_class = MODEL_CLASSES[args.pretreained_model]
-        self.tokenizers = tokenizer_class.from_pretrained(self.args.pretrained_model_path, do_lower_case=True)
+        self.tokenizers = tokenizer_class.from_pretrained(self.args.pretrained_model_path, do_lower_case=self.args.do_lower_case)
 
     def update_dict(self, dict, key, value=None):
         if key not in dict:
@@ -53,7 +53,7 @@ class NewsInfo:
         news_attrs = [
             self._parse_news_attr(
             attr_name, parser[attr_name], attr_raw_value
-            ) for attr_name, attr_raw_value in 
+            ) for attr_name, attr_raw_value in
             zip(
                 ['title', 'abstract', 'body', 'category', 'subcategory'],
                 attr_raw_values
@@ -70,7 +70,7 @@ class NewsInfo:
 
     def parse_line(self, line):
         doc_id, category, subcategory, title, abstract, body = line.strip('\n').split('\t')
-        
+
         title = " ".join([category, subcategory, title])
         title, abstract, body, category, subcategory = self._parse_news_attrs(
             [title, abstract, body, category, subcategory]
@@ -85,7 +85,7 @@ class NewsInfo:
         with open(file, "r") as f:
             for line in tqdm(f):
                 self.parse_line(line)
-            
+
 
 def get_doc_input(news, news_index, category_dict,
                   subcategory_dict, args):
@@ -140,7 +140,7 @@ def get_doc_input(news, news_index, category_dict,
 
         if 'category' in args.news_attributes:
             news_category[doc_index, 0] = category_dict[category] if category in category_dict else 0
-        
+
         if 'subcategory' in args.news_attributes:
             news_subcategory[doc_index, 0] = subcategory_dict[subcategory] if subcategory in subcategory_dict else 0
 
