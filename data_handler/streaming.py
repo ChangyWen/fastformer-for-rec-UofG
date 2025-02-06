@@ -8,6 +8,7 @@ from queue import Queue
 from concurrent.futures import ThreadPoolExecutor
 import sys
 import traceback
+tf.compat.v1.disable_eager_execution()
 
 def get_files(dirname, filename_pat="*", recursive=False):
     if not tf.io.gfile.exists(dirname):
