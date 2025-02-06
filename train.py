@@ -341,7 +341,6 @@ def test(model, args, device, category_dict, subcategory_dict):
 
 
 if __name__ == '__main__':
-    os.environ["CUDA_VISIBLE_DEVICES"] = "0"
     setuplogger()
     args = parse_args()
     ddp_train_vd(args)
