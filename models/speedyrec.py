@@ -4,7 +4,7 @@ from transformers import BertConfig
 from utility.utils import MODEL_CLASSES
 from models.fast import Fastformer
 from models.moe import MoE
-from transformers.modeling_bert import BertModel
+from transformers.models.bert.modeling_bert import BertModel
 ffconfig = BertConfig.from_json_file('models/ffconfig.json')
 
 
@@ -72,10 +72,10 @@ class TextEncoder(nn.Module):
             self.config.hidden_size,
             args.news_dim)
 
-        self.moe_layer = MoEFFN(input_size=self.config.hidden_size, 
-                                output_size=args.news_dim, 
-                                hidden_size=ffconfig.expert_hidden_size, 
-                                num_expert=ffconfig.num_expert, 
+        self.moe_layer = MoEFFN(input_size=self.config.hidden_size,
+                                output_size=args.news_dim,
+                                hidden_size=ffconfig.expert_hidden_size,
+                                num_expert=ffconfig.num_expert,
                                 k=ffconfig.num_selected_expert,
                                 layer_norm_eps=ffconfig.layer_norm_eps,
                                 hidden_dropout_prob=ffconfig.hidden_dropout_prob)
@@ -100,12 +100,12 @@ class TextEncoder(nn.Module):
             sent_vec = self.sent_att(sent_vec, text_attmask)
         else:
             sent_vec = torch.mean(sent_vec, dim=1)
-        
+
         if self.args.use_moe:
             news_vec, _ = self.moe_layer(sent_vec)
         else:
             news_vec = self.fc(sent_vec)
-       
+
         return news_vec
 
     def forward(self, inputs):
