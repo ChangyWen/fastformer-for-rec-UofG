@@ -66,7 +66,7 @@ class StreamReader:
 
         dataset = dataset.batch(batch_size)
         dataset = dataset.prefetch(3)
-        self.next_batch = dataset.make_one_shot_iterator().get_next()
+        self.next_batch = tf.compat.v1.data.make_one_shot_iterator(dataset).get_next()
         self.session = None
 
 
@@ -245,10 +245,10 @@ class StreamReaderTest(StreamReader):
 
         # if shuffle:
         #     dataset = dataset.shuffle(shuffle_buffer_size, reshuffle_each_iteration=True)
-        
+
         dataset = dataset.batch(batch_size)
         dataset = dataset.prefetch(1)
-        self.next_batch = dataset.make_one_shot_iterator().get_next()
+        self.next_batch = tf.compat.v1.data.make_one_shot_iterator(dataset).get_next()
         self.session = None
 
 
