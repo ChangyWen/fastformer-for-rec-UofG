@@ -70,7 +70,8 @@ def cleanup_process():
 def get_device():
     if torch.cuda.is_available():
         local_rank = os.environ.get("RANK", 0)
-        return torch.device('cuda', int(local_rank))
+        print(f"cuda is available, device: cuda:{int(local_rank)}")
+        return torch.device(f'cuda:{int(local_rank)}')
     return torch.device('cpu')
 
 
