@@ -229,12 +229,12 @@ def train(local_rank,
                     loss = 0.0
                     accuary = 0.0
 
-                if global_step%args.test_steps == 0 and local_rank == 0:
-                    stest_time = time.time()
-                    auc = test(model, args, device, news_info.category_dict, news_info.subcategory_dict)
-                    ddp_model.train()
-                    logging.info('step:{}, auc:{}'.format(global_step, auc))
-                    test_time = test_time + time.time()-stest_time
+                # if global_step%args.test_steps == 0 and local_rank == 0:
+                #     stest_time = time.time()
+                #     auc = test(model, args, device, news_info.category_dict, news_info.subcategory_dict)
+                #     ddp_model.train()
+                #     logging.info('step:{}, auc:{}'.format(global_step, auc))
+                #     test_time = test_time + time.time()-stest_time
 
                 # save model minibatch
                 if local_rank == 0 and global_step % args.save_steps == 0:
