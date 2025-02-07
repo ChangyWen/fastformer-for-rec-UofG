@@ -29,8 +29,9 @@ from data_handler.TestDataloader import DataLoaderTest
 
 from models.speedyrec import MLNR
 
-from tensorboardX import SummaryWriter
+from torch.utils.tensorboard import SummaryWriter
 current_time = int(time.time())
+summary_writer = SummaryWriter(log_dir=f'../logs/{current_time}')
 
 def ddp_train_vd(args):
     '''
@@ -61,7 +62,6 @@ def train(local_rank,
           end_train,
           dist_training=True):
 
-    summary_writer = SummaryWriter(log_dir=f'../logs/{current_time}/local_rank_{local_rank}')
 
     setuplogger()
     try:
