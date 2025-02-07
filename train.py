@@ -31,7 +31,6 @@ from models.speedyrec import MLNR
 
 from torch.utils.tensorboard import SummaryWriter
 current_time = int(time.time())
-summary_writer = SummaryWriter(log_dir=f'./tensorboard_logs/{current_time}')
 
 def ddp_train_vd(args):
     '''
@@ -64,6 +63,7 @@ def train(local_rank,
 
 
     setuplogger()
+    summary_writer = SummaryWriter(log_dir=f'./tensorboard_logs/{current_time}/local_rank_{local_rank}')
     try:
         if dist_training:
             init_process(local_rank, args.world_size)
@@ -358,6 +358,7 @@ if __name__ == '__main__':
 
 
 
+# nohup \
 # python train.py \
 # --pretreained_model others \
 # --pretrained_model_path google-bert/bert-base-uncased \
@@ -370,13 +371,14 @@ if __name__ == '__main__':
 # --warmup True \
 # --schedule_step 240000 \
 # --warmup_step 1000 \
-# --batch_size 4 \
+# --batch_size 16 \
 # --npratio 4 \
 # --beta_for_cache 0.002 \
 # --max_step_in_cache 2 \
 # --savename speedyrec_mind \
 # --news_dim 256 \
-# --save_steps 200
+# --save_steps 28000 \
+# >./nohup_logs/1.out 2>&1 &
 
 # python train.py \
 # --pretreained_model unilm \
