@@ -358,7 +358,7 @@ if __name__ == '__main__':
 # --warmup True \
 # --schedule_step 240000 \
 # --warmup_step 1000 \
-# --batch_size 4 \
+# --batch_size 64 \
 # --npratio 4 \
 # --beta_for_cache 0.002 \
 # --max_step_in_cache 2 \

@@ -1,7 +1,7 @@
 import torch
 import logging
 
-from transformers.modeling_utils import cached_path, WEIGHTS_NAME, TF2_WEIGHTS_NAME, TF_WEIGHTS_NAME
+from transformers.modeling_utils import cached_file as cached_path, WEIGHTS_NAME, TF2_WEIGHTS_NAME, TF_WEIGHTS_NAME
 
 logger = logging.getLogger(__name__)
 
