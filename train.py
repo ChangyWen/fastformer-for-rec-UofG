@@ -29,6 +29,8 @@ from data_handler.TestDataloader import DataLoaderTest
 
 from models.speedyrec import MLNR
 
+from tensorboardX import SummaryWriter
+current_time = int(time.time())
 
 def ddp_train_vd(args):
     '''
@@ -58,6 +60,8 @@ def train(local_rank,
           end_dataloder,
           end_train,
           dist_training=True):
+
+    summary_writer = SummaryWriter(log_dir=f'../logs/{current_time}/local_rank_{local_rank}')
 
     setuplogger()
     try:
@@ -201,8 +205,11 @@ def train(local_rank,
                     bz_loss.backward()
                     optimizer.step()
                     optimizer.zero_grad()
+                    current_acc = acc(label_batch, y_hat)
+                    accuary += current_acc
 
-                    accuary += acc(label_batch, y_hat)
+                    summary_writer.add_scalar('loss', bz_loss, global_step)
+                    summary_writer.add_scalar('acc', current_acc, global_step)
 
                     # update the cache
                     if args.max_step_in_cache > 0 and encode_vecs is not None:
@@ -270,6 +277,9 @@ def train(local_rank,
 
         if dist_training:
             cleanup_process()
+
+        summary_writer.flush()
+        summary_writer.close()
 
     except:
         error_type, error_value, error_trace = sys.exc_info()
