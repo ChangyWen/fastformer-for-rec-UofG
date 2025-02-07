@@ -224,6 +224,7 @@ class DataLoaderLeader(DataLoaderTest):
 
     def generate_batch(self):
         user_feature_batch, log_mask_batch, news_feature_batch, news_bias_batch, label_batch, market_batch = [], [], [], [], [], []
+        user_news_history_batch = []
         user_news_history = []  # ADDED
         impids = []
         for file in self.test_files:

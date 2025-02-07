@@ -358,7 +358,27 @@ if __name__ == '__main__':
 # --warmup True \
 # --schedule_step 240000 \
 # --warmup_step 1000 \
-# --batch_size 64 \
+# --batch_size 4 \
+# --npratio 4 \
+# --beta_for_cache 0.002 \
+# --max_step_in_cache 2 \
+# --savename speedyrec_mind \
+# --news_dim 256 \
+# --save_steps 200
+
+# python train.py \
+# --pretreained_model unilm \
+# --pretrained_model_path ./unilm2-base-uncased.bin \
+# --do_lower_case True \
+# --root_data_dir ./data/speedy_data/ \
+# --num_hidden_layers 8 \
+# --world_size 2 \
+# --lr 1e-4 \
+# --pretrain_lr 8e-6 \
+# --warmup True \
+# --schedule_step 240000 \
+# --warmup_step 1000 \
+# --batch_size 4 \
 # --npratio 4 \
 # --beta_for_cache 0.002 \
 # --max_step_in_cache 2 \
