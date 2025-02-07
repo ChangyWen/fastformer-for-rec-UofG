@@ -143,7 +143,7 @@ def train(local_rank,
             pad_doc = torch.zeros(1, args.news_dim, device=device)
 
             for cnt, batch in tqdm(enumerate(dataloader)):
-                with torch.autograd.set_detect_anomaly(True):
+                with torch.autograd.set_detect_anomaly(False):
                     address_cache, update_cache, satrt_inx, end_inx, batch = batch
                     global_step += 1
 
@@ -197,6 +197,7 @@ def train(local_rank,
                                              label_batch)
 
                     loss += bz_loss.item()
+                    assert not torch.isnan(bz_loss).any(), f'nan loss: {bz_loss}'
                     bz_loss.backward()
                     optimizer.step()
                     optimizer.zero_grad()
@@ -349,7 +350,8 @@ if __name__ == '__main__':
 
 # python train.py \
 # --pretreained_model others \
-# --pretrained_model_path google-bert/bert-base-cased \
+# --pretrained_model_path google-bert/bert-base-uncased \
+# --do_lower_case True \
 # --root_data_dir ./data/speedy_data/ \
 # --num_hidden_layers 8 \
 # --world_size 2 \
