@@ -31,7 +31,7 @@ from models.speedyrec import MLNR
 
 from torch.utils.tensorboard import SummaryWriter
 current_time = int(time.time())
-summary_writer = SummaryWriter(log_dir=f'../logs/{current_time}')
+summary_writer = SummaryWriter(log_dir=f'../tensorboard_logs/{current_time}')
 
 def ddp_train_vd(args):
     '''
