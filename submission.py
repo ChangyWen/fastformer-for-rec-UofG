@@ -55,19 +55,12 @@ def prediction(model, args, device, category_dict, subcategory_dict):
         f = open(f'prediction-{current_time}.txt', 'w', encoding='utf-8')
         for cnt, (impids, log_vecs, log_mask, candidate_vec) in enumerate(dataloader.generate_batch()):
 
-            print('log_vecs-0', log_vecs)
-            print('log_mask-1', log_mask)
-
             if args.enable_gpu:
                 log_vecs = log_vecs.cuda(device=device, non_blocking=True)
                 log_mask = log_mask.cuda(device=device, non_blocking=True)
 
-            print('log_vecs-2', log_vecs)
-            print('log_mask-3', log_mask)
             user_vecs = model.user_encoder(
                 log_vecs, log_mask, user_log_mask=True).to(torch.device("cpu")).detach().numpy()
-            print('user_vecs-4', user_vecs)
-            input()
 
             for id, user_vec, news_vec in zip(
                     impids, user_vecs, candidate_vec):
@@ -90,3 +83,5 @@ if __name__ == "__main__":
     setuplogger()
     args = parse_args()
     generate_submission(args)
+
+# python submission.py --pretrained_model_path google-bert/bert-base-uncased --do_lower_case True --pretreained_model others --root_data_dir ./data/speedy_data/ --num_hidden_layers 8 --load_ckpt_name ./saved_models/speedyrec_mind-epoch-1.pt --batch_size 2 --news_dim 256
