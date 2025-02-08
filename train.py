@@ -79,7 +79,7 @@ def train(local_rank,
                 data_paths.sort()
 
         model = MLNR(args)
-        if args.pretrained_model_path.endswith('.pt'):
+        if args.load_ckpt_name.endswith('.pt'):
             # train_path = os.path.join(args.pretrained_model_path, 'fastformer4rec.pt')
             model.load_param(args.pretrained_model_path)
             print(f'****** Load checkpoint {args.pretrained_model_path} successfully ******')
@@ -388,8 +388,9 @@ if __name__ == '__main__':
 
 # python train.py \
 # --pretreained_model others \
-# --pretrained_model_path ./speedymind_ckpts \
+# --pretrained_model_path google-bert/bert-base-uncased \
 # --do_lower_case True \
+# --load_ckpt_name ./saved_models/speedyrec_mind-epoch-1.pt \
 # --root_data_dir ./data/speedy_data/ \
 # --num_hidden_layers 8 \
 # --world_size 2 \
