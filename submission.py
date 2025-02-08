@@ -14,6 +14,7 @@ from models.speedyrec import MLNR
 import time
 
 def generate_submission(args):
+
     setuplogger()
     args = check_args_environment(args)
     logging.info('-----------start test------------')
@@ -68,6 +69,8 @@ def prediction(model, args, device, category_dict, subcategory_dict):
                 score = np.dot(
                     news_vec, user_vec
                 )
+                # check is score contains nan
+                assert not np.isnan(np.array(score)).any(), f'nan score: {score}'
                 pred_rank = (np.argsort(np.argsort(score)[::-1]) + 1).tolist()
                 f.write(str(id) + ' ' + '[' + ','.join([str(x) for x in pred_rank]) + ']' + '\n')
 
