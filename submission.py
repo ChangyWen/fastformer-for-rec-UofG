@@ -68,7 +68,7 @@ def prediction(model, args, device, category_dict, subcategory_dict):
                 score = np.dot(
                     news_vec, user_vec
                 )
-                pred_rank = (np.argsort(score)[::-1] + 1).tolist()
+                pred_rank = (np.argsort(np.argsort(score)[::-1]) + 1).tolist()
                 f.write(str(id) + ' ' + '[' + ','.join([str(x) for x in pred_rank]) + ']' + '\n')
 
         f.close()
