@@ -81,8 +81,8 @@ def train(local_rank,
         model = MLNR(args)
         if args.load_ckpt_name.endswith('.pt'):
             # train_path = os.path.join(args.pretrained_model_path, 'fastformer4rec.pt')
-            model.load_param(args.pretrained_model_path)
-            print(f'****** Load checkpoint {args.pretrained_model_path} successfully ******')
+            model.load_param(args.load_ckpt_name)
+            print(f'****** Load checkpoint {args.load_ckpt_name} successfully ******')
 
 
         model = model.to(device)
