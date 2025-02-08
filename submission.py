@@ -31,7 +31,8 @@ def generate_submission(args):
 
     # run predictions for all user history sizes and save timelog into file
     with open('time.txt', 'a') as file:
-        for i in [5, 10, 15, 20, 24, 'all']:
+        # for i in [5, 10, 15, 20, 24, 'all']:
+        for i in ['all']:
             start = perf_counter()
             prediction(model, args, device, ckpt['category_dict'], ckpt['subcategory_dict'], n=i)
             end = perf_counter()
