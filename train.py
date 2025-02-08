@@ -79,9 +79,10 @@ def train(local_rank,
                 data_paths.sort()
 
         model = MLNR(args)
-        if 'speedyrec_mind' in args.pretrained_model_path:
+        if args.pretrained_model_path.endswith('.pt'):
             # train_path = os.path.join(args.pretrained_model_path, 'fastformer4rec.pt')
             model.load_param(args.pretrained_model_path)
+            print(f'****** Load checkpoint {args.pretrained_model_path} successfully ******')
 
 
         model = model.to(device)
