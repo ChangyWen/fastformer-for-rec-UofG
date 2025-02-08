@@ -14,6 +14,7 @@ from models.speedyrec import MLNR
 
 from time import perf_counter
 from datetime import timedelta
+import time
 
 def generate_submission(args):
     setuplogger()
@@ -107,7 +108,7 @@ def prediction(model, args, device, category_dict, subcategory_dict, n):
 
         f.close()
 
-    zip_file = zipfile.ZipFile(f'ff-prediction-{n}.zip', 'w', zipfile.ZIP_DEFLATED)
+    zip_file = zipfile.ZipFile(f'ff-prediction-{n}-{int(time.time())}.zip', 'w', zipfile.ZIP_DEFLATED)
     zip_file.write('prediction.txt')
     zip_file.close()
     os.remove('prediction.txt')
