@@ -8,7 +8,7 @@ import numpy as np
 import torch
 from torch.utils.data import IterableDataset
 from data_handler.streaming import StreamSamplerTest, get_files
-
+from tqdm import tqdm
 
 def news_sample(news, ratio):
     if ratio > len(news):
@@ -228,7 +228,7 @@ class DataLoaderLeader(DataLoaderTest):
         impids = []
         for file in self.test_files:
             print(f'predicting: {file}')
-            for line in open(file, 'r'):
+            for line in tqdm(open(file, 'r')):
                 impid, uid, history, impressions = line.strip().split('\t')
                 click_docs = [i for i in history.split()]
 
