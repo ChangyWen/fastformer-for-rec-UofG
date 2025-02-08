@@ -120,10 +120,11 @@ if __name__ == "__main__":
 
 
 # python submission.py \
-# --pretrained_model_path google-bert/bert-base-cased \
+# --pretrained_model_path google-bert/bert-base-uncased \
+# --do_lower_case True \
 # --pretreained_model others \
 # --root_data_dir ./data/speedy_data/ \
 # --num_hidden_layers 8 \
-# --load_ckpt_name ./saved_models/speedyrec_mind-epoch-1-200.pt \
-# --batch_size 4 \
+# --load_ckpt_name ./saved_models/speedyrec_mind-epoch-1.pt \
+# --batch_size 32 \
 # --news_dim 256

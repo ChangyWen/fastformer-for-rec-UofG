@@ -79,9 +79,9 @@ def train(local_rank,
                 data_paths.sort()
 
         model = MLNR(args)
-        if 'speedymind_ckpts' in args.pretrained_model_path:
-            train_path = os.path.join(args.pretrained_model_path, 'fastformer4rec.pt')
-            model.load_param(train_path)
+        if 'speedyrec_mind' in args.pretrained_model_path:
+            # train_path = os.path.join(args.pretrained_model_path, 'fastformer4rec.pt')
+            model.load_param(args.pretrained_model_path)
 
 
         model = model.to(device)
@@ -261,19 +261,19 @@ def train(local_rank,
                     }, ckpt_path)
                 logging.info(f"Model saved to {ckpt_path}")
 
-                auc = test(model, args, device, news_info.category_dict, news_info.subcategory_dict)
-                ddp_model.train()
+                # auc = test(model, args, device, news_info.category_dict, news_info.subcategory_dict)
+                # ddp_model.train()
 
-                if auc>best_auc:
-                    best_auc = auc
-                else:
-                    best_count += 1
-                    if best_auc >= 3:
-                        logging.info("best_auc:{}, best_ep:{}".format(best_auc, ep-3))
-                        end_train.value = True
+                # if auc>best_auc:
+                #     best_auc = auc
+                # else:
+                #     best_count += 1
+                #     if best_auc >= 3:
+                #         logging.info("best_auc:{}, best_ep:{}".format(best_auc, ep-3))
+                #         end_train.value = True
             barrier()
-            if end_train.value:
-                break
+            # if end_train.value:
+            #     break
 
         if dist_training:
             cleanup_process()
@@ -379,6 +379,32 @@ if __name__ == '__main__':
 # --news_dim 256 \
 # --save_steps 28000 \
 # >./nohup_logs/1.out 2>&1 &
+
+
+# AutoDL:
+# [INFO 2025-02-08 14:16:49,446] epoch:1, time:52431.833335876465, encode_num:24875712
+# [INFO 2025-02-08 14:16:52,450] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+
+# python train.py \
+# --pretreained_model others \
+# --pretrained_model_path ./speedymind_ckpts \
+# --do_lower_case True \
+# --root_data_dir ./data/speedy_data/ \
+# --num_hidden_layers 8 \
+# --world_size 2 \
+# --lr 1e-4 \
+# --pretrain_lr 8e-6 \
+# --warmup True \
+# --schedule_step 240000 \
+# --warmup_step 1000 \
+# --batch_size 16 \
+# --npratio 4 \
+# --beta_for_cache 0.002 \
+# --max_step_in_cache 2 \
+# --savename speedyrec_mind-1 \
+# --news_dim 256 \
+# --save_steps 28000
+
 
 # python train.py \
 # --pretreained_model unilm \
