@@ -427,3 +427,56 @@ if __name__ == '__main__':
 # --savename speedyrec_mind \
 # --news_dim 256 \
 # --save_steps 200
+
+
+
+# 103859it [13:03:28,  2.23it/s][INFO 2025-02-10 00:22:18,286] [1] cost_time:94915.46762371063 step:209600, train_loss: 1.16156, acc:0.55312, hit:0.14958152740649958, encode_num:24695097, lr:0.00001272, pretrain_lr:0.00000102
+# [INFO 2025-02-10 00:22:18,286] [0] cost_time:94915.46768951416 step:209600, train_loss: 1.16156, acc:0.55312, hit:0.14958152740649958, encode_num:24695097, lr:0.00001272, pretrain_lr:0.00000102
+# 104059it [13:04:59,  2.15it/s][INFO 2025-02-10 00:23:49,598] [1] cost_time:95006.77956151962 step:209800, train_loss: 1.18220, acc:0.54828, hit:0.14957973927450333, encode_num:24718976, lr:0.00001264, pretrain_lr:0.00000101
+# 104060it [13:05:00,  2.11it/s][INFO 2025-02-10 00:23:49,598] [0] cost_time:95006.77962064743 step:209800, train_loss: 1.18220, acc:0.54828, hit:0.14957973927450333, encode_num:24718976, lr:0.00001264, pretrain_lr:0.00000101
+# 104259it [13:06:29,  2.18it/s][INFO 2025-02-10 00:25:19,829] [1] cost_time:95097.01033878326 step:210000, train_loss: 1.19834, acc:0.52953, hit:0.14958023516894317, encode_num:24742491, lr:0.00001255, pretrain_lr:0.00000100
+# 104260it [13:06:30,  2.32it/s][INFO 2025-02-10 00:25:19,829] [0] cost_time:95097.01057267189 step:210000, train_loss: 1.19834, acc:0.52953, hit:0.14958023516894317, encode_num:24742491, lr:0.00001255, pretrain_lr:0.00000100
+# 104459it [13:08:01,  2.23it/s][INFO 2025-02-10 00:26:51,277] [0] cost_time:95188.45823192596 step:210200, train_loss: 1.19131, acc:0.53484, hit:0.14957833501498913, encode_num:24766478, lr:0.00001247, pretrain_lr:0.00000100
+# 104460it [13:08:01,  2.26it/s][INFO 2025-02-10 00:26:51,277] [1] cost_time:95188.4584941864 step:210200, train_loss: 1.19131, acc:0.53484, hit:0.14957833501498913, encode_num:24766478, lr:0.00001247, pretrain_lr:0.00000100
+# 104659it [13:09:33,  2.37it/s][INFO 2025-02-10 00:28:23,058] [1] cost_time:95280.2399122715 step:210400, train_loss: 1.18105, acc:0.54750, hit:0.1495804816755464, encode_num:24790166, lr:0.00001238, pretrain_lr:0.00000099
+# 104660it [13:09:33,  2.36it/s][INFO 2025-02-10 00:28:23,059] [0] cost_time:95280.2400097847 step:210400, train_loss: 1.18105, acc:0.54750, hit:0.1495804816755464, encode_num:24790166, lr:0.00001238, pretrain_lr:0.00000099
+# 104859it [13:11:04,  2.28it/s][INFO 2025-02-10 00:29:54,140] [1] cost_time:95371.32122612 step:210600, train_loss: 1.18992, acc:0.53562, hit:0.1495802045762094, encode_num:24813820, lr:0.00001230, pretrain_lr:0.00000098
+# 104860it [13:11:04,  2.30it/s][INFO 2025-02-10 00:29:54,140] [0] cost_time:95371.32130789757 step:210600, train_loss: 1.18992, acc:0.53562, hit:0.1495802045762094, encode_num:24813820, lr:0.00001230, pretrain_lr:0.00000098
+# 105059it [13:12:34,  2.24it/s][INFO 2025-02-10 00:31:24,488] [0] cost_time:95461.66933131218 step:210800, train_loss: 1.20671, acc:0.53016, hit:0.14957882415902218, encode_num:24837175, lr:0.00001222, pretrain_lr:0.00000098
+# 105060it [13:12:34,  2.21it/s][INFO 2025-02-10 00:31:24,488] [1] cost_time:95461.66960549355 step:210800, train_loss: 1.20671, acc:0.53016, hit:0.14957882415902218, encode_num:24837175, lr:0.00001222, pretrain_lr:0.00000098
+# 105259it [13:14:04,  2.25it/s][INFO 2025-02-10 00:32:54,083] [1] cost_time:95551.2642197609 step:211000, train_loss: 1.19014, acc:0.54625, hit:0.149582603464868, encode_num:24860500, lr:0.00001213, pretrain_lr:0.00000097
+# 105260it [13:14:04,  2.49it/s][INFO 2025-02-10 00:32:54,083] [0] cost_time:95551.26428937912 step:211000, train_loss: 1.19014, acc:0.54625, hit:0.149582603464868, encode_num:24860500, lr:0.00001213, pretrain_lr:0.00000097
+# 105459it [13:15:33,  2.14it/s][INFO 2025-02-10 00:34:23,207] [1] cost_time:95640.38874816895 step:211200, train_loss: 1.18015, acc:0.55266, hit:0.1495814156476318, encode_num:24883698, lr:0.00001205, pretrain_lr:0.00000096
+# [INFO 2025-02-10 00:34:23,207] [0] cost_time:95640.38882350922 step:211200, train_loss: 1.18015, acc:0.55266, hit:0.1495814156476318, encode_num:24883698, lr:0.00001205, pretrain_lr:0.00000096
+# 105659it [13:17:12,  1.96it/s][INFO 2025-02-10 00:36:02,439] [1] cost_time:95739.62082242966 step:211400, train_loss: 1.20112, acc:0.54062, hit:0.14958394781895762, encode_num:24909619, lr:0.00001197, pretrain_lr:0.00000096
+# 105660it [13:17:12,  1.94it/s][INFO 2025-02-10 00:36:02,440] [0] cost_time:95739.62093734741 step:211400, train_loss: 1.20112, acc:0.54062, hit:0.14958394781895762, encode_num:24909619, lr:0.00001197, pretrain_lr:0.00000096
+# 105734it [13:17:48,  2.53it/s]2025-02-10 00:36:38.387765: I tensorflow/core/framework/local_rendezvous.cc:405] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+#          [[{{node IteratorGetNext}}]]
+# 2025-02-10 00:36:38.387778: I tensorflow/core/framework/local_rendezvous.cc:405] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+#          [[{{node IteratorGetNext}}]]
+# 105740it [13:17:50,  2.21it/s]
+# 105740it [13:17:50,  2.21it/s]
+# [INFO 2025-02-10 00:36:40,495] epoch:2, time:95777.67623448372, encode_num:24919533
+# [INFO 2025-02-10 00:36:40,495] epoch:2, time:95777.67642903328, encode_num:24919533
+# [INFO 2025-02-10 00:36:43,704] Model saved to ./saved_models/speedyrec_mind-1-epoch-2.pt
+# [INFO 2025-02-10 00:36:44,110] start async...
+# [INFO 2025-02-10 00:36:44,111] start async...
+# [INFO 2025-02-10 00:36:44,111] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+# [INFO 2025-02-10 00:36:44,112] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+# 119it [00:53,  2.42it/s][INFO 2025-02-10 00:37:38,219] [0] cost_time:95835.40071725845 step:211600, train_loss: 1.17971, acc:0.55141, hit:0.14958857588104177, encode_num:24933380, lr:0.00001188, pretrain_lr:0.00000095
+# [INFO 2025-02-10 00:37:38,219] [1] cost_time:95835.40091633797 step:211600, train_loss: 1.17971, acc:0.55141, hit:0.14958857588104177, encode_num:24933380, lr:0.00001188, pretrain_lr:0.00000095
+# 319it [02:26,  2.03it/s][INFO 2025-02-10 00:39:10,522] [0] cost_time:95927.70322203636 step:211800, train_loss: 1.20354, acc:0.54031, hit:0.14958971596344386, encode_num:24956823, lr:0.00001180, pretrain_lr:0.00000094
+# [INFO 2025-02-10 00:39:10,522] [1] cost_time:95927.70334720612 step:211800, train_loss: 1.20354, acc:0.54031, hit:0.14958971596344386, encode_num:24956823, lr:0.00001180, pretrain_lr:0.00000094
+# 482it [03:40,  2.19it/s]^C
+
+
+
+# [INFO 2025-02-10 14:41:47,208] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+# 59it [00:27,  2.28it/s][INFO 2025-02-10 14:42:14,698] [1] cost_time:47807.56764173508 step:105800, train_loss: 1.15445, acc:0.56719, hit:0.14930141749212877, encode_num:12471430, lr:0.00005615, pretrain_lr:0.00000449
+# 60it [00:27,  2.32it/s][INFO 2025-02-10 14:42:14,699] [0] cost_time:47807.57531237602 step:105800, train_loss: 1.15445, acc:0.56719, hit:0.14930141749212877, encode_num:12471430, lr:0.00005615, pretrain_lr:0.00000449
+# 259it [01:57,  2.03it/s][INFO 2025-02-10 14:43:44,821] [1] cost_time:47897.68967676163 step:106000, train_loss: 1.18504, acc:0.55437, hit:0.1493104690240422, encode_num:12494519, lr:0.00005607, pretrain_lr:0.00000449
+# [INFO 2025-02-10 14:43:44,821] [0] cost_time:47897.69729924202 step:106000, train_loss: 1.18504, acc:0.55437, hit:0.1493104690240422, encode_num:12494519, lr:0.00005607, pretrain_lr:0.00000449
+# 459it [03:29,  2.24it/s][INFO 2025-02-10 14:45:17,024] [0] cost_time:47989.900277376175 step:106200, train_loss: 1.18601, acc:0.55078, hit:0.1493118303515531, encode_num:12518072, lr:0.00005598, pretrain_lr:0.00000448
+# 460it [03:29,  2.37it/s][INFO 2025-02-10 14:45:17,024] [1] cost_time:47989.89297533035 step:106200, train_loss: 1.18601, acc:0.55078, hit:0.1493118303515531, encode_num:12518072, lr:0.00005598, pretrain_lr:0.00000448
+# 659it [04:59,  2.24it/s][INFO 2025-02-10 14:46:46,816] [0] cost_time:48079.69296836853 step:106400, train_loss: 1.18701, acc:0.55016, hit:0.1493138065984874, encode_num:12541202, lr:0.00005590, pretrain_lr:0.00000447
+# [INFO 2025-02-10 14:46:46,817] [1] cost_time:48079.68564367294 step:106400, train_loss: 1.18701, acc:0.55016, hit:0.1493138065984874, encode_num:12541202, lr:0.00005590, pretrain_lr:0.00000447

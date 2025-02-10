@@ -87,4 +87,10 @@ if __name__ == "__main__":
     args = parse_args()
     generate_submission(args)
 
-# python submission.py --pretrained_model_path google-bert/bert-base-uncased --do_lower_case True --pretreained_model others --root_data_dir ./data/speedy_data/ --num_hidden_layers 8 --load_ckpt_name ./saved_models/speedyrec_mind-epoch-1.pt --batch_size 32 --news_dim 256
+# python submission.py --pretrained_model_path google-bert/bert-base-uncased --do_lower_case True --pretreained_model others --root_data_dir ./data/speedy_data/ --num_hidden_layers 8 --load_ckpt_name ./saved_models/speedyrec_mind-3-epoch-1.pt --batch_size 32 --news_dim 256
+
+
+# python submission.py --pretrained_model_path google-bert/bert-base-uncased --do_lower_case True --pretreained_model others --root_data_dir ./data/speedy_data/ --num_hidden_layers 8 --load_ckpt_name ./saved_models/speedyrec_mind-1-epoch-1.pt --batch_size 32 --news_dim 256
+
+# python submission.py --pretrained_model_path FacebookAI/roberta-base --do_lower_case False --pretreained_model others --root_data_dir ./data/speedy_data/ --num_hidden_layers 8 --load_ckpt_name ./saved_models/autodl-speedyrec_mind_roberta-epoch-2.pt --batch_size 32 --news_dim 256
+

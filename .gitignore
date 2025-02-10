@@ -6,4 +6,5 @@ __pycache__
 *.bin
 *.txt
 *.zip
-tensorboard_logs
+# tensorboard_logs
+.DS_Store
