@@ -408,25 +408,27 @@ if __name__ == '__main__':
 # --save_steps 28000
 
 
+###### continued training of roberta-base epoch 3 on HKU server
 # python train.py \
-# --pretreained_model unilm \
-# --pretrained_model_path ./unilm2-base-uncased.bin \
-# --do_lower_case True \
+# --pretreained_model others \
+# --pretrained_model_path FacebookAI/roberta-base \
+# --do_lower_case False \
+# --load_ckpt_name ./saved_models/autodl-speedyrec_mind_roberta-epoch-3.pt \
+# --savename speedyrec_mind_roberta-3 \
+# --lr 5e-5 \
+# --pretrain_lr 4e-6 \
+# --world_size 2 \
+# --batch_size 16 \
 # --root_data_dir ./data/speedy_data/ \
 # --num_hidden_layers 8 \
-# --world_size 2 \
-# --lr 1e-4 \
-# --pretrain_lr 8e-6 \
 # --warmup True \
 # --schedule_step 240000 \
 # --warmup_step 1000 \
-# --batch_size 4 \
 # --npratio 4 \
 # --beta_for_cache 0.002 \
 # --max_step_in_cache 2 \
-# --savename speedyrec_mind \
 # --news_dim 256 \
-# --save_steps 200
+# --save_steps 50000
 
 
 
