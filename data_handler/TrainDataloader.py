@@ -17,7 +17,7 @@ from torch.utils.data import IterableDataset
 
 from data_handler.streaming import StreamReaderForSpeedy
 from utility.utils import MODEL_CLASSES
-
+import time
 
 class DataLoaderTrainForSpeedyRec(IterableDataset):
     '''
@@ -274,7 +274,8 @@ class DataLoaderTrainForSpeedyRec(IterableDataset):
                (input_ids, hist_sequence, hist_sequence_mask, candidate_inx, label_batch)
 
     def _process(self, batch):
-        random.seed(self.global_step)
+        # random.seed(self.global_step)
+        random.seed(int(time.time()))
         batch = [x.decode(encoding="utf-8").split("\t") for x in batch]
         news_set, behavior_set, uid_click_docs, uid_sample_news = [], [], [], []
         for line in batch:
