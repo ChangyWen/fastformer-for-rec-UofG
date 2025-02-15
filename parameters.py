@@ -69,6 +69,7 @@ def parse_args():
     parser.add_argument("--drop_rate", type=float, default=0.2)
     parser.add_argument("--save_steps", type=int, default=100000)
     parser.add_argument("--max_steps_per_epoch", type=int, default=1000000)
+    parser.add_argument("--previous_global_step", type=int, default=0)
 
     parser.add_argument(
         "--load_ckpt_name",
